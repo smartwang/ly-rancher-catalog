@@ -1,8 +1,8 @@
 version: 2
 catalog:
   name: Drone
-  version: 0.8.0-rc.1-rancher1
-  upgrade_from: 0.5-rancher1
+  version: 0.8.0-rc.3-rancher1
+  # upgrade_from: 0.5-rancher1
   description: |
     Drone CI Server ref http://readme.drone.io/admin/installation-guide/
   questions:
@@ -51,6 +51,7 @@ catalog:
       label: Drone Admin
       description: List of admins for drone comma seperated. http://readme.drone.io/admin/user-admins/
       type: string
+      default: "wangying,zhangwei001"
       required: false
     - variable: drone_orgs
       label: Organizations
@@ -61,11 +62,11 @@ catalog:
       type: "enum"
       required: true
       label: "Remote Driver"
-      default: "GitHub"
+      default: "GitLab"
       description: "Remote Git and Auth scheme. ref http://readme.drone.io/admin"
       options:
-        - GitHub
         - GitLab
+        - GitHub
         - Gogs
         - Bitbucket Cloud
         - Bitbucket Server
@@ -83,6 +84,7 @@ catalog:
       label: Remote Driver URL
       description: "Remote Driver server url. Required for GitLab, Gogs and Bitbucket Server; see http://readme.drone.io/admin."
       type: string
+      default: "https://gitlab.ilongyuan.cn"
       required: false
     - variable: drone_driver_user
       label: Remote Driver Username
@@ -103,9 +105,9 @@ catalog:
       label: Drone Version
       description: "Drone version/Docker tag used for the Drone container images."
       type: enum
-      default: "0.8.0-rc.1"
+      default: "0.8.0-rc.3"
       options:
-        - 0.8.0-rc.1
+        - 0.8.0-rc.3
         - 0.8.0
         - '0.8'
         - latest
@@ -122,7 +124,7 @@ catalog:
     - variable: "database_source"
       type: "string"
       label: "Database source"
-      description: "Database datasource. Required if database driver is mysql or postgres, http://readme.drone.io/admin/database-engines/"
+      description: "Database datasource. Required if database driver is mysql or postgres, http://readme.drone.io/admin/database-engines/, mysql example: user:password@tcp(db:3306)/drone?parseTime=true"
       required: false
     - variable: "http_proxy"
       type: string
