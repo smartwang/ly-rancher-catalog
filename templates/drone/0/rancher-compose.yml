@@ -161,7 +161,13 @@ catalog:
       default: "no"
       options:
         - "no"
-        - "yes"     
+        - "yes"
+    - variable: "database_link"
+      label: "Database"
+      description: |
+        如果你使用了非sqlite的数据库，必须选择外部数据库服务，并使用'db'访问此数据库
+      type: "service"
+      required: false
 services:
   agent:
     scale: ${agent_scale}
