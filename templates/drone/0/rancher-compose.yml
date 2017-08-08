@@ -42,7 +42,7 @@ catalog:
       description: |
         Users self register. http://readme.drone.io/admin/user-registration/
       required: true
-      default: true
+      default: false
       type: enum
       options:
         - true
