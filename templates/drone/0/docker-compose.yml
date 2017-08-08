@@ -87,8 +87,8 @@ services:
       no_proxy: ${no_proxy}
 {{- end}}
 {{- if ne .Values.database_driver "sqlite"}}
-  external_links:
-    - ${database_link}:db
+    external_links:
+      - ${database_link}:db
 {{- end}}
     labels:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}

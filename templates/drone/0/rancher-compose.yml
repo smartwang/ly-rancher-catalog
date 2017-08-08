@@ -115,7 +115,7 @@ catalog:
       label: Database Driver
       description: "Database driver. If sqlite, additional volume would be mounted at /var/lib/drone."
       type: enum
-      default: "sqlite"
+      default: "mysql"
       options:
         - "sqlite"
         - "mysql"
