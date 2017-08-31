@@ -1,0 +1,25 @@
+version: 2
+catalog:
+  name: Openvas
+  version: 9
+  upgrade_from: 9
+  description: |
+    Openvas service 
+  questions:
+    - variable: OV_PASSWORD
+      label: Admin password 
+      description: Admin password for openvas
+      required: true
+      type: string
+services:
+  openvas:
+    scale: 1
+    start_on_create: true
+    #health_check:
+    #  port: 443
+    #  interval: 2000
+    #  unhealthy_threshold: 3
+    #  strategy: recreate
+    #  request_line: GET / HTTP/1.0
+    #  healthy_threshold: 2
+    #  response_timeout: 2000
