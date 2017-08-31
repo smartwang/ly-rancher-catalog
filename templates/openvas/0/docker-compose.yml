@@ -45,12 +45,15 @@ services:
 
   openvas:
     restart: always
-    image: mikesplain/openvas:9
+    image: registry.cn-shanghai.aliyuncs.com/ly_ops/openvas:9
     hostname: openvas
     expose:
       - "443"
     environment:
       OV_PASSWORD: ${OV_PASSWORD}
+{{- if eq .Values.http_only "yes"}}
+      OTHER_DAEMON_ARGS: --http-only
+{{- end}}
     labels:
       deck-chores.dump.command: sh -c "greenbone-nvt-sync; openvasmd --rebuild --progress"
       deck-chores.dump.interval: daily

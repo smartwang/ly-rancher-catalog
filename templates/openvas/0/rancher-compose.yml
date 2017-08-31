@@ -11,6 +11,14 @@ catalog:
       description: Admin password for openvas
       required: true
       type: string
+    - variable: http_only
+      label: use http instead of https
+      description: while using gslb,you need use http on 443 port instead of https
+      type: enum
+      default: "no"
+      options:
+        - "no"
+        - "yes"
 services:
   openvas:
     scale: 1
