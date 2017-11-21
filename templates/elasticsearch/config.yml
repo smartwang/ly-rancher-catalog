@@ -1,0 +1,5 @@
+name: elasticsearch
+description: |
+    Elasticsearch Server
+version: 5.6.1
+category: ELK
