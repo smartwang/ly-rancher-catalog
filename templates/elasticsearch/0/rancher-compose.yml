@@ -43,7 +43,7 @@ catalog:
           required: true
           label: "Memory limit in byte (master nodes)"
           description: "Memory limit in Byte per elasticsearch container. AT LEAST double the heap size! (master nodes), inf means no limit"
-          default: "inf"
+          default: "1g"
 
         - variable: "data_heap_size"
           type: "string"
@@ -57,7 +57,7 @@ catalog:
           required: true
           label: "Memory limit in byte (data nodes)"
           description: "Memory limit in Byte per elasticsearch container. AT LEAST double the heap size! (data nodes), inf means no limit"
-          default: "inf"
+          default: "44g"
 
         - variable: "client_heap_size"
           type: "string"
@@ -71,7 +71,7 @@ catalog:
           required: true
           label: "Memory limit in byte (client nodes)"
           description: "Memory limit in Byte per elasticsearch container. AT LEAST double the heap size! (client nodes), inf means no limit"
-          default: "inf"
+          default: "1g"
 
         - variable: "minimum_master_nodes"
           type: "int"
