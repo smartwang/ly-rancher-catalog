@@ -119,6 +119,24 @@ services:
             - "SYSCTL_VALUE=262144"
     {{- end}}
 
+    {{- if eq .Values.ENABLE_KIBANA "true" }}
+    kibana:
+        image: docker.elastic.co/kibana/kibana:5.6.1
+        environment:
+          ELASTICSEARCH_URL: http://es-client:9200
+        stdin_open: true
+        tty: true
+    {{- end}}
+
+    {{- if eq .Values.ENABLE_ELASTICSQL "true" }}
+    elastic-sql:
+        image: registry.cn-shanghai.aliyuncs.com/ly_ops/site-server:0.0.1
+        stdin_open: true
+        tty: true
+        labels:
+          io.rancher.container.pull_image: always
+    {{- end}}
+
 volumes:
   es-storage-volume:
     driver: ${VOLUME_DRIVER}

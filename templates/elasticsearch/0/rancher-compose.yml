@@ -105,6 +105,28 @@ catalog:
             #- rancher-nfs
             #- rancher-efs
             #- rancher-ebs
+        - variable: "ENABLE_KIBANA"
+          label: "enable kibana:"
+          description: |
+            Set true to enable kibana.
+          default: true
+          required: true
+          type: enum
+          options:
+            - false
+            - true
+        - variable: "ENABLE_ELASTICSQL"
+          label: "enable elastic-sql:"
+          description: |
+            Set true to enable elastic-sql.
+          default: true
+          required: true
+          type: enum
+          options:
+            - false
+            - true
+
+
 
 services:
 
