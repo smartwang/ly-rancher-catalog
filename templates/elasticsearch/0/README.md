@@ -25,6 +25,12 @@ master和client会尽量避免被部署在同一个节点主机， 但启动的�
 
 `client_heap_size`: 暂无生产环境运行配置经验，根据实际压力情况进行调整， 目前默认配置为1G
 
+# 常用API
+
+集群健康状态查看 `/_cluster/health?pretty`
+
+集群状态详情查看 `/_cluster/state?pretty`
+
 # 集群维护
 
 TODO
@@ -42,3 +48,14 @@ kibana 和 elasticsql 为可选安装项，默认会安装，如果不需要可�
 `kibana`: `http/https: 80->5601`
 
 `elastic-sql`: `http/https:  80->8080`
+
+# 常见问题:
+
+### Elasticsearch is still initializing the kibana index... 
+
+执行 `curl -XDELETE http://localhost:9200/.kibana`
+
+###  Elasticsearch is still initializing the Monitoring indices
+
+执行 `curl -XDELETE 'http://localhost:9200/.monitoring*'`
+
