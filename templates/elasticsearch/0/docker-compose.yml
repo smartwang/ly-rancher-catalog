@@ -17,6 +17,7 @@ services:
             - "discovery.zen.minimum_master_nodes=${minimum_master_nodes}"
             - "node.master=true"
             - "node.data=false"
+            - "http.cors.allow-origin:${http_cors_allow_origin}"
         ulimits:
             memlock:
                 soft: -1
@@ -28,6 +29,7 @@ services:
         mem_swappiness: 0
         cap_add:
             - IPC_LOCK
+            - SYS_PTRACE
         volumes_from:
             - es-storage
 

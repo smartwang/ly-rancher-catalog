@@ -94,6 +94,14 @@ catalog:
           description: "Set the initial number of client nodes"
           default: 1
 
+        - variable: "http_cors_allow_origin"
+          type: "string"
+          required: true
+          label: "http cors"
+          description: "http跨域设置，对于如elastic sql这样的工具，需要设置这个"
+          default: "*.dragonest.com"
+
+
         - variable: "VOLUME_DRIVER"
           description: "The VOLUME driver to associate with this server"
           label: "VOLUME Driver"
